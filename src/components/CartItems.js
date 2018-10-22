@@ -17,8 +17,8 @@ class CartItems extends React.Component {
                     <CartItem />
                 </div>
             </div>
-        )    
+        );    
     }
-}
+};
 
 export default CartItems;

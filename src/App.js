@@ -30,11 +30,11 @@ class App extends Component {
       <div>
         <CartHeader />
         <CartItems />
-        <AddItem product = {this.state.products} />
+        <AddItem products = {this.state.products} />
         <CartFooter year = {this.state.copyrightYear} />
       </div>
     );
   }
-}
+};
 
 export default App;

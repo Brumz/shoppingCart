@@ -11,8 +11,8 @@ class CartItem extends React.Component {
                     <div className="col-md-2">1</div>
                 </div>
             </div>
-        )
+        );
     }
-}
+};
 
 export default CartItem;
