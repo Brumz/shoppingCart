@@ -9,7 +9,8 @@ class CartItems extends React.Component {
           <div className="row">
             <div className="col-md-8">{item.name}</div>
             <div className="col-md-2">{"$" + item.priceInCents / 100}</div>
-            <div className="col-md-2">{this.props.quantity}</div>
+            {/* <div className="col-md-2">{this.props.quantity}</div> */}
+            <div className="col-md-2">{item.quantity}</div>
           </div>
         </div>
       );

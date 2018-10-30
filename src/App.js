@@ -28,14 +28,14 @@ class App extends Component {
       cart: [],
       totalPrice: 0,
       price: 0,
-      arr: []
+      selectedProduct: null
     };
   }
 
   grabThis = e => {
     const array = this.state.products.filter(item => item.name === e);
     this.setState({
-      arr: array[0],
+      selectedProduct: array[0],
       price: (this.state.price += array[0].priceInCents)
     });
   };
@@ -48,8 +48,13 @@ class App extends Component {
 
   SubmitItems = e => {
     e.preventDefault();
+    //make a new object with info from selected product and quantity
+    const newObj = {
+      quantity: this.state.quantity,
+      ...this.state.selectedProduct
+    };
     this.setState({
-      cart: [...this.state.cart, this.state.arr]
+      cart: [...this.state.cart, newObj]
     });
   };
   //  let total = () => {
