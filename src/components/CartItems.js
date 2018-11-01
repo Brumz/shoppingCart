@@ -1,5 +1,5 @@
 import React from "react";
-import CartItem from "./CartItem";
+import "../CartItems.css";
 
 class CartItems extends React.Component {
   render() {
@@ -9,7 +9,6 @@ class CartItems extends React.Component {
           <div className="row">
             <div className="col-md-8">{item.name}</div>
             <div className="col-md-2">{"$" + item.priceInCents / 100}</div>
-            {/* <div className="col-md-2">{this.props.quantity}</div> */}
             <div className="col-md-2">{item.quantity}</div>
           </div>
         </div>

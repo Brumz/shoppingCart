@@ -3,14 +3,24 @@
     height: 2.5em;
     margin-bottom: 2em;
 }
+
 .nProducts {
     width: 90em;
     height: 2.5em;
     margin-bottom: 2em;
 }
+
 h2 {
     margin-left: 2em;
 }
+
 .btn {
     margin-bottom: 1em;
+}
+
+.grandTotal {
+    display: flex;
+    flex-direction: row;
+    border: 1px dotted gray;
+    width: 500px;
 }

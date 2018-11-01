@@ -24,7 +24,6 @@ class App extends Component {
       copyrightYear: 2016,
       products: products,
       quantity: 0,
-      name: "",
       cart: [],
       totalPrice: 0,
       price: 0,
@@ -35,8 +34,7 @@ class App extends Component {
   grabThis = e => {
     const array = this.state.products.filter(item => item.name === e);
     this.setState({
-      selectedProduct: array[0],
-      price: (this.state.price += array[0].priceInCents)
+      selectedProduct: array[0]
     });
   };
 
@@ -48,34 +46,29 @@ class App extends Component {
 
   SubmitItems = e => {
     e.preventDefault();
-    //make a new object with info from selected product and quantity
     const newObj = {
       quantity: this.state.quantity,
       ...this.state.selectedProduct
     };
     this.setState({
-      cart: [...this.state.cart, newObj]
+      cart: [...this.state.cart, newObj],
+      totalPrice:
+        this.state.totalPrice +
+        this.state.quantity * this.state.selectedProduct.priceInCents
     });
   };
-  //  let total = () => {
-  //    return ((this.state.priceInCents / 100) * this.state.quantity)
-  //  }
-  //  var total =  ((this.state.priceInCents / 100) * this.state.quantity)
 
   render() {
     return (
       <div>
         <CartHeader />
         <CartItems cart={this.state.cart} quantity={this.state.quantity} />
-        <h2>
-          Total:{" "}
-          {(this.state.priceInCents / 100) * parseInt(this.state.quantity)}
-        </h2>
         <AddItem
           products={this.state.products}
           grabThis={this.grabThis}
           changeQuantity={this.changeQuantity}
           submit={this.SubmitItems}
+          total={this.state.totalPrice}
         />
         <CartFooter year={this.state.copyrightYear} />
       </div>
